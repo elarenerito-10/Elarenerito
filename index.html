@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>El Arenerito by EMbolitos</title>
+
+<style>
+
+/* =========================
+   COLORES
+========================= */
+
+:root {
+  --crema: #f7f2e4;
+  --amarillo: #ffc914;
+  --negro: #111111;
+  --azul: #69bdd9;
+  --verde: #25d366;
+  --rojo: #ef4743;
+  --blanco: #ffffff;
+  --gris: #625f56;
+}
+
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--negro);
+  background: var(--crema);
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+.contenedor {
+  width: min(1120px, calc(100% - 36px));
+  margin: auto;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(247, 242, 228, 0.96);
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+nav {
+  min-height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 18px;
+}
+
+.marca {
+  text-decoration: none;
+
+  color: var(--negro);
+
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.marca span {
+  color: #d99e00;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: 700;
+
+  transition: 0.2s ease;
+}
+
+.menu a:hover {
+  color: #d99e00;
+}
+
+.menu .whatsapp-menu {
+  background: var(--verde);
+  color: white;
+
+  padding: 10px 16px;
+
+  border-radius: 999px;
+}
+
+
+/* =========================
+   PORTADA
+========================= */
+
+.portada {
+  min-height: 85vh;
+
+  padding: 55px 0 70px;
+
+  display: flex;
+  align-items: center;
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(255,201,20,0.28),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 5% 90%,
+      rgba(105,189,217,0.13),
+      transparent 25%
+    ),
+    var(--crema);
+}
+
+.portada-grid {
+  display: grid;
+
+  grid-template-columns: 1.05fr 0.95fr;
+
+  gap: 55px;
+
+  align-items: center;
+}
+
+
+/* LOGO */
+
+.logo-caja {
+  background: #faf7ed;
+
+  padding: 20px;
+
+  border-radius: 34px;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.08);
+
+  animation: entradaLogo 0.8s ease both;
+}
+
+.logo-caja img {
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 24px;
+
+  transition: transform 0.4s ease;
+}
+
+.logo-caja:hover img {
+  transform: scale(1.015);
+}
+
+
+/* TEXTO */
+
+.portada-texto {
+  animation: entradaTexto 0.8s 0.1s ease both;
+}
+
+.etiqueta {
+  display: inline-block;
+
+  background: var(--amarillo);
+
+  border: 3px solid var(--negro);
+
+  border-radius: 999px;
+
+  padding: 8px 15px;
+
+  font-size: 13px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.portada h1 {
+  font-size: clamp(45px, 6vw, 84px);
+
+  line-height: 0.95;
+
+  letter-spacing: -3px;
+
+  margin: 20px 0;
+}
+
+.portada h1 span {
+  color: #d99e00;
+}
+
+.portada-texto p {
+  color: var(--gris);
+
+  font-size: 19px;
+
+  max-width: 580px;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 11px;
+
+  margin-top: 26px;
+}
+
+.boton {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  font-weight: 800;
+
+  padding: 14px 21px;
+
+  border-radius: 999px;
+  border: 3px solid var(--negro);
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.boton:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 20px rgba(0,0,0,0.12);
+}
+
+.boton-amarillo {
+  background: var(--amarillo);
+  color: var(--negro);
+}
+
+.boton-negro {
+  background: var(--negro);
+  color: white;
+}
+
+.boton-verde {
+  background: var(--verde);
+  color: white;
+
+  border-color: var(--verde);
+}
+
+
+/* =========================
+   FRANJA DE CONSTRUCCION
+========================= */
+
+.franja {
+  height: 20px;
+
+  background:
+    repeating-linear-gradient(
+      135deg,
+      var(--amarillo) 0,
+      var(--amarillo) 25px,
+      var(--negro) 25px,
+      var(--negro) 50px
+    );
+
+  background-size: 150px 150px;
+
+  animation: moverFranja 12s linear infinite;
+}
+
+
+/* =========================
+   SECCIONES
+========================= */
+
+section {
+  padding: 82px 0;
+}
+
+.fondo-blanco {
+  background: white;
+}
+
+.subtitulo {
+  color: #c58e00;
+
+  font-size: 13px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.titulo {
+  font-size: clamp(35px, 5vw, 60px);
+
+  line-height: 1.02;
+
+  letter-spacing: -2px;
+
+  margin: 8px 0 15px;
+}
+
+.descripcion {
+  color: var(--gris);
+
+  font-size: 18px;
+
+  max-width: 720px;
+
+  margin-bottom: 36px;
+}
+
+
+/* =========================
+   ATRACCIONES
+========================= */
+
+.tarjetas {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 15px;
+}
+
+.tarjeta {
+  background: var(--crema);
+
+  padding: 25px 19px;
+
+  border: 2px solid transparent;
+  border-radius: 24px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-7px);
+
+  border-color: var(--amarillo);
+
+  box-shadow:
+    0 14px 30px rgba(0,0,0,0.08);
+}
+
+.icono {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--amarillo);
+
+  border-radius: 17px;
+
+  font-size: 29px;
+
+  margin-bottom: 16px;
+
+  transition: transform 0.3s ease;
+}
+
+.tarjeta:hover .icono {
+  transform:
+    scale(1.08)
+    rotate(-4deg);
+}
+
+.tarjeta h3 {
+  margin: 0 0 8px;
+
+  line-height: 1.15;
+}
+
+.tarjeta p {
+  margin: 0;
+
+  color: var(--gris);
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   MINI SUPER
+========================= */
+
+.mini-super {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 50px;
+
+  align-items: center;
+}
+
+
+/* FOTOS COMPLETAS */
+
+.foto {
+  background: #eeeeee;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.11);
+}
+
+.foto img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  transition: transform 0.6s ease;
+}
+
+.foto:hover img {
+  transform: scale(1.02);
+}
+
+
+/* =========================
+   FIESTAS
+========================= */
+
+.fiestas {
+  background: var(--amarillo);
+
+  text-align: center;
+}
+
+.fiestas .subtitulo {
+  color: var(--negro);
+}
+
+.fiestas .descripcion {
+  color: #37342c;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fiestas .botones {
+  justify-content: center;
+}
+
+
+/* =========================
+   GALERIA
+========================= */
+
+.galeria {
+  display: grid;
+
+  grid-template-columns:
+    1.5fr 1fr 1fr;
+
+  gap: 14px;
+
+  align-items: start;
+}
+
+.galeria .foto {
+  background: var(--crema);
+}
+
+.galeria .foto img {
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+/* =========================
+   VISITANOS
+========================= */
+
+.visitanos {
+  background: var(--negro);
+
+  color: white;
+}
+
+.visitanos .subtitulo {
+  color: var(--amarillo);
+}
+
+.visitanos .descripcion {
+  color: #cccccc;
+}
+
+.visita-grid {
+  display: grid;
+
+  grid-template-columns:
+    0.85fr 1.15fr;
+
+  gap: 28px;
+}
+
+.informacion {
+  background: #202020;
+
+  padding: 32px;
+
+  border-radius: 26px;
+}
+
+.informacion h3 {
+  color: var(--amarillo);
+
+  margin-bottom: 5px;
+}
+
+.informacion p {
+  color: #dddddd;
+
+  margin-top: 0;
+}
+
+
+/* MAPA */
+
+.mapa {
+  min-height: 470px;
+
+  overflow: hidden;
+
+  border:
+    5px solid var(--amarillo);
+
+  border-radius: 26px;
+}
+
+.mapa iframe {
+  width: 100%;
+  height: 100%;
+
+  min-height: 470px;
+
+  border: 0;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  background: #080808;
+
+  color: #aaaaaa;
+
+  text-align: center;
+
+  padding: 34px 18px;
+}
+
+footer strong {
+  display: block;
+
+  color: var(--amarillo);
+
+  font-size: 21px;
+
+  margin-bottom: 5px;
+}
+
+footer div {
+  margin-top: 5px;
+}
+
+
+/* =========================
+   WHATSAPP FLOTANTE
+========================= */
+
+.whatsapp-flotante {
+  position: fixed;
+
+  right: 20px;
+  bottom: 20px;
+
+  z-index: 2000;
+
+  width: 61px;
+  height: 61px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: var(--verde);
+  color: white;
+
+  border-radius: 50%;
+
+  font-size: 28px;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 9px 25px
+    rgba(37,211,102,0.35);
+
+  animation:
+    pulsoWhatsapp
+    2.6s
+    infinite;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes entradaLogo {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+@keyframes entradaTexto {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+@keyframes moverFranja {
+
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 150px 0;
+  }
+
+}
+
+
+@keyframes pulsoWhatsapp {
+
+  0%,
+  100% {
+    box-shadow:
+      0 9px 25px
+      rgba(37,211,102,0.30);
+  }
+
+  50% {
+    box-shadow:
+      0 9px 36px
+      rgba(37,211,102,0.65);
+  }
+
+}
+
+
+/* ANIMACION AL HACER SCROLL */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(22px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .portada-grid,
+  .mini-super,
+  .visita-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portada-texto {
+    text-align: center;
+  }
+
+  .portada-texto p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .botones {
+    justify-content: center;
+  }
+
+  .tarjetas {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .galeria {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .galeria .foto:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .menu a:not(.whatsapp-menu) {
+    display: none;
+  }
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 560px) {
+
+  .contenedor {
+    width: calc(100% - 28px);
+  }
+
+  nav {
+    min-height: 62px;
+  }
+
+  .marca {
+    font-size: 16px;
+  }
+
+  .whatsapp-menu {
+    font-size: 13px;
+
+    padding: 9px 12px;
+  }
+
+  .portada {
+    min-height: auto;
+
+    padding:
+      35px 0 55px;
+  }
+
+  .portada-grid {
+    gap: 28px;
+  }
+
+  .logo-caja {
+    padding: 10px;
+
+    border-radius: 24px;
+  }
+
+  .logo-caja img {
+    border-radius: 18px;
+  }
+
+  .portada h1 {
+    font-size:
+      clamp(
+        44px,
+        15vw,
+        67px
+      );
+  }
+
+  .portada-texto p {
+    font-size: 17px;
+  }
+
+  section {
+    padding: 62px 0;
+  }
+
+  .botones {
+    flex-direction: column;
+  }
+
+  .boton {
+    width: 100%;
+  }
+
+  .tarjetas {
+    grid-template-columns: 1fr;
+  }
+
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .galeria .foto:first-child {
+    grid-column: auto;
+  }
+
+  .foto img,
+  .galeria .foto img {
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+  }
+
+  .informacion {
+    padding: 25px;
+  }
+
+  .mapa,
+  .mapa iframe {
+    min-height: 390px;
+  }
+
+}
+
+
+/* =========================
+   ACCESIBILIDAD
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+
+    transform: none;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<header>
+
+  <nav class="contenedor">
+
+    <a
+      href="#inicio"
+      class="marca"
+</a>
+
+
+    <div class="menu">
+
+      #atracciones
+        Atracciones
+      </a>
+
+      <a href="#fiestas">
+stas
+      </a>
+
+      <a href="#galeria">
+ería
+      </a>
+
+      <a href="#visitanos">
+ítanos
+      </a>
+
+      <a
+        class="whatsapp-menu"
+        href="https://wa.me/523343406951?text=Hola%20El%20Arenerito%2C%20me%20gustaria%20recibir%20informacion."
+        target="_blank"
+        rel="noopener"
+==
+     PORTADA
+========================= -->
+
+<section
+  class="portada"
+  id="inicio"
+>
+
+  <div
+    class="
+      contenedor
+      portada-grid
+    "
+  >
+
+
+    <!-- LOGO -->
+
+    <div class="logo-caja">
+
+      <img
+        src="logo.jpeg"
+       TO -->
+
+    <div class="portada-texto">
+
+      <span class="etiqueta">
+
+        JUEGA · IMAGINA · DESCUBRE
+
+      </span>
+
+
+      <h1>
+
+        Un mundo hecho para
+
+        <span>
+          jugar.
+        </span>
+
+      </h1>
+
+
+      <p>
+
+        Un espacio para que los pequeños
+        exploren, imaginen y disfruten
+        diferentes áreas de juego en
+        El Arenerito.
+
+      </p>
+
+
+      <div class="botones">
+
+
+        <a
+          class="
+            boton
+            boton-amarillo
+          "
+          href="https://wa.me/523343406951?text=Hola%20El%20Arenerito%2C%20me%20gustaria%20reservar%20una%20visita."
+          target="_blank"
+          rel="noopener"
+       ://www.google.com/maps/search/?api=1&query=Plaza+Acueducto+L-12+Zapopan+Jalisco+45118"
+          target="_blank"
+          rel="noopener"
+       ></div>
+
+
+
+<!-- =========================
+     ATRACCIONES
+========================= -->
+
+<section
+  class="fondo-blanco"
+  id="atracciones"
+>
+
+  <div
+    class="
+      contenedor
+      reveal
+    "
+  >
+
+
+    <div class="subtitulo">
+
+      DESCUBRE
+
+    </div>
+
+
+    <h2 class="titulo">
+
+      Todo un mundo para jugar
+
+    </h2>
+
+
+    <p class="descripcion">
+
+      Cada espacio invita a crear
+      una aventura diferente.
+
+    </p>
+
+
+    <div class="tarjetas">
+
+
+      <article class="tarjeta">
+
+        <div class="icono">
+          🏖️
+        </div>
+
+        <h3>
+          Arenero gigante
+        </h3>
+
+        <p>
+          Construye, juega y descubre
+          nuevas posibilidades.
+        </p>
+
+      </article>
+
+
+      <article class="tarjeta">
+
+        <div class="icono">
+          ⚽
+        </div>
+
+        <h3>
+          Mini cancha de fútbol
+        </h3>
+
+        <p>
+          Un espacio para correr,
+          jugar y divertirse.
+        </p>
+
+      </article>
+
+
+      <article class="tarjeta">
+
+        <div class="icono">
+          🐶
+        </div>
+
+        <h3>
+          Veterinaria
+        </h3>
+
+        <p>
+          Juego de imaginación para
+          cuidar a los animalitos.
+        </p>
+
+      </article>
+
+
+      <article class="tarjeta">
+
+        <div class="icono">
+          🛒
+        </div>
+
+        <h3>
+          Mini Súper
+        </h3>
+
+        <p>
+          Carrito, compras y muchas
+          historias por inventar.
+        </p>
+
+      </article>
+
+
+      <article class="tarjeta">
+
+        <div class="icono">
+          🍼
+        </div>
+
+        <h3>
+          Muñecas bebé
+        </h3>
+
+        <p>
+          Un área para jugar y crear
+          historias con muñecas.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     MINI SUPER
+========================= -->
+
+<section>
+
+  <div
+    class="
+      contenedor
+      mini-super
+      reveal
+    "
+  >
+
+
+    <div class="foto">
+
+      <img
+        src="mini-super.jpeg"
+        alt="Área de Mini Súper de El Arenerito"
+     DE IMAGINACIÓN
+
+      </div>
+
+
+      <h2 class="titulo">
+
+        ¡Vamos de compras
+        al Mini Súper!
+
+      </h2>
+
+
+      <p class="descripcion">
+
+        Los pequeños pueden tomar su carrito,
+        elegir productos y jugar a hacer
+        las compras mientras crean sus
+        propias historias.
+
+      </p>
+
+
+      <a
+        class="
+          boton
+          boton-verde
+        "
+        href="https://wa.me/523343406951?text=Hola%20El%20Arenerito%2C%20quiero%20conocer%20mas%20sobre%20sus%20areas%20de%20juego."
+        target="_blank"
+        rel="noopener"
+================ -->
+
+<section
+  class="fiestas"
+  id="fiestas"
+>
+
+  <div
+    class="
+      contenedor
+      reveal
+    "
+  >
+
+
+    <div class="subtitulo">
+
+      🎉 CELEBRA CON NOSOTROS
+
+    </div>
+
+
+    <h2 class="titulo">
+
+      Haz de su día
+      una gran aventura
+
+    </h2>
+
+
+    <p class="descripcion">
+
+      Celebra momentos especiales
+      en El Arenerito.
+
+      Pregunta por disponibilidad,
+      paquetes y opciones para
+      fiestas y eventos.
+
+    </p>
+
+
+    <div class="botones">
+
+
+      <a
+        class="
+          boton
+          boton-negro
+        "
+        href="https://wa.me/523343406951?text=Hola%20El%20Arenerito%2C%20me%20gustaria%20recibir%20informacion%20sobre%20fiestas%20y%20paquetes."
+        target="_blank"
+        rel="noopener"
+="true"
+></div>
+
+
+
+<!-- =========================
+     GALERIA
+========================= -->
+
+<section
+  class="fondo-blanco"
+  id="galeria"
+>
+
+  <div
+    class="
+      contenedor
+      reveal
+    "
+  >
+
+
+    <div class="subtitulo">
+
+      GALERÍA
+
+    </div>
+
+
+    <h2 class="titulo">
+
+      Conoce El Arenerito
+
+    </h2>
+
+
+    <p class="descripcion">
+
+      Un vistazo a nuestros espacios
+      de juego, imaginación y diversión.
+
+    </p>
+
+
+    <div class="galeria">
+
+
+      <div class="foto">
+
+        <img
+          src="instalaciones.jpeg"
+          alt="Instalaciones de El Arenerito"
+       -super.jpeg"
+          alt="Mini Súper de El Arenerito"
+       ogo.jpeg"
+          alt="Logo de El Arenerito by EMbolitos"
+       ====
+     VISITANOS
+========================= -->
+
+<section
+  class="visitanos"
+  id="visitanos"
+>
+
+  <div
+    class="
+      contenedor
+      reveal
+    "
+  >
+
+
+    <div class="subtitulo">
+
+      📍 VISÍTANOS
+
+    </div>
+
+
+    <h2 class="titulo">
+
+      Ven a vivir la aventura
+
+    </h2>
+
+
+    <p class="descripcion">
+
+      Te esperamos todos los días.
+
+    </p>
+
+
+    <div class="visita-grid">
+
+
+      <!-- INFORMACION -->
+
+      <div class="informacion">
+
+
+        <h3>
+          📍 Dirección
+        </h3>
+
+
+        <p>
+
+          Plaza Acueducto L-12
+
+          <br>
+
+          Zapopan, Jalisco
+
+          <br>
+
+          C.P. 45118
+
+        </p>
+
+
+        <h3>
+          🕐 Horario
+        </h3>
+
+
+        <p>
+
+          Lunes a domingo
+
+          <br>
+
+          <strong>
+            9:00 AM a 7:00 PM
+          </strong>
+
+        </p>
+
+
+        <div class="botones">
+
+
+          <a
+            class="
+              boton
+              boton-amarillo
+            "
+            href="https://www.google.com/maps/search/?api=1&query=Plaza+Acueducto+L-12+Zapopan+Jalisco+45118"
+            target="_blank"
+            rel="noopener"
+         523343406951?text=Hola%20El%20Arenerito%2C%20me%20gustaria%20recibir%20informacion."
+            target="_blank"
+            rel="noopener"
+         nerito"
+          src="https://www.google.com/maps?q=Plaza%20Acueducto%20L-12%20Zapopan%20Jalisco%2045118&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+       NERITO by EMbolitos
+  </strong>
+
+
+  <div>
+    Juega · Imagina · Descubre
+  </div>
+
+
+  <div>
+    📍 Plaza Acueducto L-12 ·
+    Zapopan, Jalisco 45118
+  </div>
+
+
+  <div>
+    🕐 Lunes a domingo ·
+    9:00 AM a 7:00 PM
+  </div>
+
+</footer>
+
+
+
+<!-- =========================
+     WHATSAPP FLOTANTE
+========================= -->
+
+<a
+  class="whatsapp-flotante"
+  href="https://wa.me/523343406951?text=Hola%20El%20Arenerito%2C%20me%20gustaria%20recibir%20informacion."
+  target="_blank"
+  rel="noopener"
+  aria-label="Abrir WhatsApp"
+>
+   cript>
+
+const elementos =
+  document.querySelectorAll(
+    ".reveal"
+  );
+
+
+if (
+  "IntersectionObserver" in window
+) {
+
+  const observador =
+    new IntersectionObserver(
+
+      function(entradas) {
+
+        entradas.forEach(
+
+          function(entrada) {
+
+            if (
+              entrada.isIntersecting
+            ) {
+
+              entrada.target
+                .classList
+                .add("visible");
+
+              observador
+                .unobserve(
+                  entrada.target
+                );
+
+            }
+
+          }
+
+        );
+
+      },
+
+      {
+        threshold: 0.12
+      }
+
+    );
+
+
+  elementos.forEach(
+
+    function(elemento) {
+
+      observador.observe(
+        elemento
+      );
+
+    }
+
+  );
+
+}
+
+else {
+
+  elementos.forEach(
+
+    function(elemento) {
+
+      elemento
+        .classList
+        .add("visible");
+
+    }
+
+  );
+
+}
+
+</script>
+
+
+</body>
+</html>
